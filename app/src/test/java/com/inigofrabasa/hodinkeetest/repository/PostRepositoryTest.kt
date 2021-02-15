@@ -8,6 +8,7 @@ import com.inigofrabasa.hodinkeetest.cache.Cache
 import com.inigofrabasa.hodinkeetest.database.AppDatabase
 import com.inigofrabasa.hodinkeetest.model.ArticleEntity
 import com.inigofrabasa.hodinkeetest.model.BaseResponse
+import com.inigofrabasa.hodinkeetest.model.ItemBaseEntity
 import com.inigofrabasa.hodinkeetest.utils.API_KEY
 import io.mockk.coEvery
 import io.mockk.every
@@ -27,7 +28,7 @@ class PostRepositoryTest : UnitTest() {
         const val QUERY_STRING = "watches"
     }
     private lateinit var dataProviderRepository: PostsRepository.DataProvider
-    private lateinit var articleListEntity : MutableLiveData<List<ArticleEntity>>
+    private lateinit var articleListEntity : MutableLiveData<List<ItemBaseEntity>>
 
     @MockK private lateinit var service: PostsService
     @MockK private lateinit var cache: Cache
@@ -61,9 +62,9 @@ class PostRepositoryTest : UnitTest() {
 
         every { appDatabase.postsDao().getPosts() } returns mutableListOf()
         every { cache.articleListEntity } returns articleListEntity
-        coEvery { service.getPosts(QUERY_STRING, API_KEY) } returns postResponse
+        coEvery { service.getPosts(QUERY_STRING, API_KEY, 1) } returns postResponse
 
-        val posts = dataProviderRepository.getPosts(QUERY_STRING)
+        val posts = dataProviderRepository.getPosts(QUERY_STRING, 1)
 
         //Updating observable
         runBlocking {
@@ -71,8 +72,8 @@ class PostRepositoryTest : UnitTest() {
         }
 
         val articleEntityResult = ArticleEntity(null, "Brad", "Selling Watches", "Description", "https://www.hodinkee.com", "", "", "")
-        val listResult : List<ArticleEntity> = listOf(articleEntityResult)
+        val listResult : List<ItemBaseEntity> = listOf(articleEntityResult)
         posts.value shouldEqual listResult
-        verify(exactly = 1) { runBlocking { service.getPosts(QUERY_STRING, API_KEY) } }
+        verify(exactly = 1) { runBlocking { service.getPosts(QUERY_STRING, API_KEY, 1) } }
     }
 }
