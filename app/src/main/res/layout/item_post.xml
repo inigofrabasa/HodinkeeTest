@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="article"
+            type="com.inigofrabasa.hodinkeetest.model.ArticleView" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:background="@drawable/border_background"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripple_default_effect"
+            >
+
+            <ImageView
+                android:id="@+id/item_post_banner_image"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_150sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:scaleType="centerCrop"
+                app:imageFromUrl="@{article.urlToImage}"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/item_post_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/item_post_banner_image"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start_margin"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_end_margin"
+                tools:text="Title"
+                android:text="@{article.title}"
+                android:textAlignment="textStart"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textSize="@dimen/_16sdp"/>
+
+            <TextView
+                android:id="@+id/item_post_author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/item_post_title"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start_margin"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_end_margin"
+                tools:text="Author"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@{article.author}"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/_13sdp"/>
+
+            <TextView
+                android:id="@+id/item_post_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/item_post_author"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start_margin"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_end_margin"
+                tools:text="Description"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@{article.description}"
+                android:textSize="@dimen/_11sdp"
+                android:textAlignment="textStart"
+                android:textStyle="italic"
+                android:maxLines="2"
+                android:ellipsize="end"
+                />
+
+            <TextView
+                android:id="@+id/item_post_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/item_post_description"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start_margin"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_end_margin"
+                tools:text="Date"
+                android:layout_marginTop="@dimen/_4sdp"
+                app:timeFormat="@{article.publishedAt}"
+                android:textSize="@dimen/_10sdp"
+                android:textAlignment="textStart"
+                android:textStyle="normal"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:paddingBottom="@dimen/_10sdp"
+                />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05"
+                />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
