@@ -23,10 +23,10 @@ The app has an infinite scroll to load more Articles since the API paginates the
 ### ----------------------------------------------------------------------------------------------
 
 ## Tap to play video
-[<img src="https://github.com/inigofrabasa/HodinkeeTest/blob/master/media/shotOne.png" alt="drawing" width="400"/>](https://drive.google.com/file/d/1pSfzB79p18vF7is4lBJ0TXx82zJVHLKX)
+[<img src="https://github.com/inigofrabasa/HodinkeeTest/blob/master/media/shotOne.png" alt="drawing" width="400"/>](https://drive.google.com/file/d/1rDvSKkiDd7fGh4swIqBuvksRLaovoBSC)
 
 ## Tap to play video
 [<img src="https://github.com/inigofrabasa/HodinkeeTest/blob/master/media/shotTwo.png" alt="drawing" width="400"/>](https://drive.google.com/file/d/1AXmgMt03Hv873T1U3hwbv7hIZlpjrVvU)
 
 ## Tap to play video
-[<img src="https://github.com/inigofrabasa/HodinkeeTest/blob/master/media/shotThree.png" alt="drawing" width="400"/>](https://drive.google.com/file/d/1rDvSKkiDd7fGh4swIqBuvksRLaovoBSC)
+[<img src="https://github.com/inigofrabasa/HodinkeeTest/blob/master/media/shotThree.png" alt="drawing" width="400"/>](https://drive.google.com/file/d/1pSfzB79p18vF7is4lBJ0TXx82zJVHLKX)
